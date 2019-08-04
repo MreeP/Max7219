@@ -5,8 +5,7 @@ from luma.core.interface.serial import spi, noop
 from luma.core.render import canvas
 from luma.led_matrix.device import max7219
 
-
-global letter 
+ 
 global timeOfWait
 global rotation
 global word
@@ -14,26 +13,23 @@ global word
 timeOfWait = 1
 rotation = 0
 word = False
-letter = False
 
 if not len(sys.argv[1:]):
 	sys.exit(0)
 try:
-	opts, args = getopt.getopt(sys.argv[1:], "l:t:r:w",  ["letter", "time", "rotation", "word"])
+	opts, args = getopt.getopt(sys.argv[1:], "t:r:w:",  ["time", "rotation", "word"])
 except getopt.GetoptError as err:
 	print(err)
 	sys.exit(0)
 
 
 for o, a in opts:
-	if o in ("-l"):
-		letter = a.upper()
-	elif o in ("-t"):
+	if o in ("-t"):
 		timeOfWait = float(a)
 	elif o in ("-r"):
 		rotation = int(a)
-	elif o in ("-w")
-		word = str(a)
+	elif o in ("-w"):
+		word = str(a).upper()
 
 
 if not word and not letter:
@@ -884,9 +880,12 @@ if not word:
 	show_letter(letter)
 elif word:
 	for i in range(len(word)):
-		if word[i] > 'z' or = word[i] < 'A':
+		if word[i] > 'z' or word[i] < 'A':
 			time.sleep(timeOfWait)
 		elif word[i] != " ":
 			show_letter(word[i])
 		elif word[i] == " ":
 			time.sleep(timeOfWait)
+		with canvas(device) as draw:
+			draw.point((8,8), fill="black")
+
