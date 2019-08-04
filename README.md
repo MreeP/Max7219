@@ -88,7 +88,6 @@ Go to the folder you've cloned code to and do the following.
 ### sudo python led8x8.py \<arguments>
 #### Arguments:
 * -w \<word> **TYPE:String**
-* -l \<letter> **TYPE:Char**
 * -t \<time> **TYPE:Int or Float**
 * -r \<rotation> **Type:Int from 0 to 3**
 
@@ -108,4 +107,3 @@ This project is licensed under the BSD License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 * [**rm-hull**](https://github.com/rm-hull/luma.led_matrix)
-
