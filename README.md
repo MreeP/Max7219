@@ -89,7 +89,10 @@ Go to the folder you've cloned code to and do the following.
 #### Arguments:
 * -w \<word> **TYPE:String**
 * -t \<time> **TYPE:Int or Float**
-* -r \<rotation> **Type:Int from 0 to 3**
+* -r \<rotation> **TYPE:Int from 0 to 3**
+* -s \<separator> **TYPE:Float or Int**
+
+Code requires only -w argument
 
 ## Built with [Python](https://www.python.org/)
 Libraries used:
