@@ -9,15 +9,17 @@ from luma.led_matrix.device import max7219
 global timeOfWait
 global rotation
 global word
+global sep
 
 timeOfWait = 1
 rotation = 0
 word = False
+sep = 0.1
 
 if not len(sys.argv[1:]):
 	sys.exit(0)
 try:
-	opts, args = getopt.getopt(sys.argv[1:], "t:r:w:",  ["time", "rotation", "word"])
+	opts, args = getopt.getopt(sys.argv[1:], "t:r:w:s:",  ["time", "rotation", "word", "separator"])
 except getopt.GetoptError as err:
 	print(err)
 	sys.exit(0)
@@ -30,12 +32,13 @@ for o, a in opts:
 		rotation = int(a)
 	elif o in ("-w"):
 		word = str(a).upper()
-
+	elif o in ("-s"):
+		sep = float(a)
 
 if not word:
 	print("Please specify word!!!")
 
-
+	
 def show_letter(letter):
 	if letter == "A":
 		with canvas(device) as draw: #A
@@ -887,4 +890,4 @@ if word:
 			time.sleep(timeOfWait)
 		with canvas(device) as draw:
 			draw.point((8,8), fill="black")
-		time.sleep(0.1)
+		time.sleep(sep)
