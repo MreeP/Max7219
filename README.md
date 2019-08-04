@@ -1,6 +1,6 @@
 # Raspberry PI MAX7219 Words Display
 
-Code that manages Max7219 8x8 led module.
+Code that allow you to display words on Max7219 8x8 led module.
 
 ## Prerequisites
 
@@ -9,7 +9,7 @@ You will need:
 * Raspbian installed on it
 * Internet connection
 * Max7219 Led module
-* 5 female -> female jumper wires
+* 5 **female -> female** jumper wires
 
 ## Installing
 
@@ -19,24 +19,24 @@ sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y
 ```
 Then install python-dev and python-pip
 ```
-sudo apt-get install python-dev python-pip
+sudo apt-get install python3-dev python3-pip
 ```
 If pip is already installed you should run the following command to get it's newest version!!!
 ```
-sudo pip install --upgrade pip
+sudo pip3 install --upgrade pip
 ```
 Next step is installing additional python libraries.
 Max7219
 ```
-sudo pip install max7219
+sudo pip3 install max7219
 ```
 Spidev
 ```
-sudo pip install spidev
+sudo pip3 install spidev
 ```
 Luma
 ```
-sudo pip install luma.led_matrix
+sudo pip3 install luma.led_matrix
 ```
 Then we are ready to clone code from GitHub.
 Navigate to your destination and execute the command below.
@@ -78,23 +78,25 @@ As you've got everything installed it's time to connect our max7219 module to Ra
 
 ## Testing
 
+**We recomend using python3**
+
 Now your Max7219 is set up so you can run the test.
 Go to the folder you've cloned code to and do the following.
-
-**sudo python led8x8.py -w test -t 0.5 -r 1**
-
+```bash
+sudo python3 led8x8.py -w test -t 0.5 -r 1
+```
 ## Syntax
 
-### sudo python led8x8.py \<arguments>
+### sudo python3 led8x8.py \<arguments>
 #### Arguments:
 * -w \<word> **TYPE:String**
 * -t \<time> **TYPE:Int or Float**
 * -r \<rotation> **TYPE:Int from 0 to 3**
 * -s \<separator> **TYPE:Float or Int**
 
-Code requires only -w argument
+Code requires only -w argument to run
 
-## Built with [Python](https://www.python.org/)
+## Built with [Python3](https://www.python.org/)
 Libraries used:
 * [Luma](https://luma-led-matrix.readthedocs.io/)
 * [Time](https://docs.python.org/2/library/time.html)
