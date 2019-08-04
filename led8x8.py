@@ -32,8 +32,8 @@ for o, a in opts:
 		word = str(a).upper()
 
 
-if not word and not letter:
-	print("Please specify word or letter!!!")
+if not word:
+	print("Please specify word!!!")
 
 
 def show_letter(letter):
@@ -869,16 +869,15 @@ def show_letter(letter):
 			draw.point((0,5), fill="red")
 			draw.point((0,6), fill="red")
 		time.sleep(timeOfWait)
-	else 
+	else:
+		time.sleep(timeOfWait)
 
 
 serial = spi(port=0, device=0, gpio=noop())
 device = max7219(serial, rotate=rotation)
 
 
-if not word:
-	show_letter(letter)
-elif word:
+if word:
 	for i in range(len(word)):
 		if word[i] > 'z' or word[i] < 'A':
 			time.sleep(timeOfWait)
@@ -888,4 +887,4 @@ elif word:
 			time.sleep(timeOfWait)
 		with canvas(device) as draw:
 			draw.point((8,8), fill="black")
-
+		time.sleep(0.1)
